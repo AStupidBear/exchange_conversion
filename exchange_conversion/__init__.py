@@ -34,7 +34,7 @@ def convert_symbol(symbol, exchange, type="exchange", year=None):
             if year is None:
                 y = '2' if symbol[-3] in ('0', '1', '2', '3', '4') else '1'
             else:
-                y = str(int(year) // 1000)
+                y = str(year)[-2]
             symbol = symbol[:-3] + y + symbol[-3:]
         return symbol
 
