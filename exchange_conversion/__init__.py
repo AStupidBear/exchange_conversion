@@ -8,12 +8,14 @@ def convert_exchange(exchange, type="exchange"):
         i = ["XSHG", "XSHE", "XBEI", "CCFX", "XDCE", "XZCE", "XSGE", "XINE", "XSIE"].index(exchange)
     elif exchange in ["0", "1", "2", "F", "D", "Z", "S", "I"]:
         i = ["0", "1", "2", "F", "D", "Z", "S", "I"].index(exchange)
+    else:
+        i = -1
     if type == "exchange":
-        return ["SSE", "SZSE", "BSE", "CFFEX", "DCE", "CZCE", "SHFE", "INE", "INE"][i]
+        return ["SSE", "SZSE", "BSE", "CFFEX", "DCE", "CZCE", "SHFE", "INE", "INE", exchange][i]
     elif type == "jqdata":
-        return ["XSHG", "XSHE", "XBEI", "CCFX", "XDCE", "XZCE", "XSGE", "XINE", "XINE"][i]
+        return ["XSHG", "XSHE", "XBEI", "CCFX", "XDCE", "XZCE", "XSGE", "XINE", "XINE", exchange][i]
     elif type == "rootnet":
-        return ["0", "1", "2", "F", "D", "Z", "S", "I", "I"][i]
+        return ["0", "1", "2", "F", "D", "Z", "S", "I", "I", exchange][i]
     return exchange
 
 
