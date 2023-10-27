@@ -2,18 +2,18 @@ import re
 
 
 def convert_exchange(exchange, type="exchange"):
-    if exchange in ["SSE", "SZSE", "BSE", "CFFEX", "DCE", "CZCE", "SHFE", "INE"]:
-        i = ["SSE", "SZSE", "BSE", "CFFEX", "DCE", "CZCE", "SHFE", "INE"].index(exchange)
-    elif exchange in ["XSHG", "XSHE", "XBEI", "CCFX", "XDCE", "XZCE", "XSGE", "XINE", "XSIE"]:
-        i = ["XSHG", "XSHE", "XBEI", "CCFX", "XDCE", "XZCE", "XSGE", "XINE", "XSIE"].index(exchange)
+    if exchange in ["SSE", "SZSE", "BSE", "CFFEX", "DCE", "CZCE", "SHFE", "INE", "GFEX"]:
+        i = ["SSE", "SZSE", "BSE", "CFFEX", "DCE", "CZCE", "SHFE", "INE", "GFEX"].index(exchange)
+    elif exchange in ["XSHG", "XSHE", "XBEI", "CCFX", "XDCE", "XZCE", "XSGE", "XINE", "XSIE", "GFEX"]:
+        i = ["XSHG", "XSHE", "XBEI", "CCFX", "XDCE", "XZCE", "XSGE", "XINE", "XSIE", "GFEX"].index(exchange)
     elif exchange in ["0", "1", "2", "F", "D", "Z", "S", "I"]:
         i = ["0", "1", "2", "F", "D", "Z", "S", "I"].index(exchange)
     else:
         i = -1
     if type == "exchange":
-        return ["SSE", "SZSE", "BSE", "CFFEX", "DCE", "CZCE", "SHFE", "INE", "INE", exchange][i]
+        return ["SSE", "SZSE", "BSE", "CFFEX", "DCE", "CZCE", "SHFE", "INE", "INE", "GFEX", exchange][i]
     elif type == "jqdata":
-        return ["XSHG", "XSHE", "XBEI", "CCFX", "XDCE", "XZCE", "XSGE", "XINE", "XINE", exchange][i]
+        return ["XSHG", "XSHE", "XBEI", "CCFX", "XDCE", "XZCE", "XSGE", "XINE", "XINE", "GFEX", exchange][i]
     elif type == "rootnet":
         return ["0", "1", "2", "F", "D", "Z", "S", "I", "I", exchange][i]
     return exchange
@@ -23,7 +23,7 @@ def convert_symbol(symbol, exchange, type="exchange", year=None):
     exchange = convert_exchange(exchange, "jqdata")
     isoption = len(symbol) > 7
     if type == "exchange":
-        if exchange in ["XDCE", "XSGE", "XINE"]:
+        if exchange in ["XDCE", "XSGE", "XINE", "GFEX"]:
             symbol = symbol.lower()
         elif exchange in ["XZCE", "CCFX"]:
             symbol = symbol.upper()
