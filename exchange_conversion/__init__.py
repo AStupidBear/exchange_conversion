@@ -4,16 +4,16 @@ import re
 def convert_exchange(exchange, type="exchange"):
     if exchange in ["SSE", "SZSE", "BSE", "CFFEX", "DCE", "CZCE", "SHFE", "INE", "GFEX"]:
         i = ["SSE", "SZSE", "BSE", "CFFEX", "DCE", "CZCE", "SHFE", "INE", "GFEX"].index(exchange)
-    elif exchange in ["XSHG", "XSHE", "XBEI", "CCFX", "XDCE", "XZCE", "XSGE", "XINE", "XSIE", "GFEX", "XGFE"]:
-        i = ["XSHG", "XSHE", "XBEI", "CCFX", "XDCE", "XZCE", "XSGE", "XINE", "XSIE", "GFEX", "GFEX"].index(exchange)
+    elif exchange in ["XSHG", "XSHE", "XBEI", "CCFX", "XDCE", "XZCE", "XSGE", "XINE", "GFEX", "XSIE", "XGFE"]:
+        i = ["XSHG", "XSHE", "XBEI", "CCFX", "XDCE", "XZCE", "XSGE", "XINE", "GFEX", "XSIE", "XGFE"].index(exchange)
     elif exchange in ["0", "1", "2", "F", "D", "Z", "S", "I"]:
         i = ["0", "1", "2", "F", "D", "Z", "S", "I"].index(exchange)
     else:
         i = -1
     if type == "exchange":
-        return ["SSE", "SZSE", "BSE", "CFFEX", "DCE", "CZCE", "SHFE", "INE", "INE", "GFEX", exchange][i]
+        return ["SSE", "SZSE", "BSE", "CFFEX", "DCE", "CZCE", "SHFE", "INE", "GFEX", "INE", "GFEX", exchange][i]
     elif type == "jqdata":
-        return ["XSHG", "XSHE", "XBEI", "CCFX", "XDCE", "XZCE", "XSGE", "XINE", "XINE", "GFEX", exchange][i]
+        return ["XSHG", "XSHE", "XBEI", "CCFX", "XDCE", "XZCE", "XSGE", "XINE", "GFEX", "XINE", "GFEX", exchange][i]
     elif type == "rootnet":
         return ["0", "1", "2", "F", "D", "Z", "S", "I", "I", exchange][i]
     return exchange
