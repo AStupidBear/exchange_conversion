@@ -4,8 +4,8 @@ import re
 def convert_exchange(exchange, type="exchange"):
     if exchange in ["SSE", "SZSE", "BSE", "CFFEX", "DCE", "CZCE", "SHFE", "INE", "GFEX"]:
         i = ["SSE", "SZSE", "BSE", "CFFEX", "DCE", "CZCE", "SHFE", "INE", "GFEX"].index(exchange)
-    elif exchange in ["XSHG", "XSHE", "XBEI", "CCFX", "XDCE", "XZCE", "XSGE", "XINE", "XSIE", "GFEX"]:
-        i = ["XSHG", "XSHE", "XBEI", "CCFX", "XDCE", "XZCE", "XSGE", "XINE", "XSIE", "GFEX"].index(exchange)
+    elif exchange in ["XSHG", "XSHE", "XBEI", "CCFX", "XDCE", "XZCE", "XSGE", "XINE", "XSIE", "GFEX", "XGFE"]:
+        i = ["XSHG", "XSHE", "XBEI", "CCFX", "XDCE", "XZCE", "XSGE", "XINE", "XSIE", "GFEX", "GFEX"].index(exchange)
     elif exchange in ["0", "1", "2", "F", "D", "Z", "S", "I"]:
         i = ["0", "1", "2", "F", "D", "Z", "S", "I"].index(exchange)
     else:
