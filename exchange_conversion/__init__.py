@@ -48,7 +48,7 @@ def to_tqcode(code, source="jqcode"):
         symbol = convert_symbol(symbol, exchange, "exchange")
         return exchange + "." + symbol
     elif source == "vt_symbol":
-        exchange, symbol = code.split(".")
+        symbol, exchange = code.split(".")
         return exchange + "." + symbol
 
 
@@ -56,7 +56,7 @@ def to_jqcode(code, year=None, source="tqcode"):
     if source == "tqcode":
         exchange, symbol = code.split(".")
     elif source == "vt_symbol":
-        exchange, symbol = code.split(".")
+        symbol, exchange = code.split(".")
     else:
         raise ValueError("Invalid source: {}".format(source))
     exchange = convert_exchange(exchange, "jqdata")
@@ -66,6 +66,7 @@ def to_jqcode(code, year=None, source="tqcode"):
 
 def to_vt_symbol(code, source="jqcode"):
     if source == "jqcode":
+        symbol, exchange = code.split(".")
         exchange = convert_exchange(exchange, "exchange")
         symbol = convert_symbol(symbol, exchange, "exchange")
         return symbol + "." + exchange
