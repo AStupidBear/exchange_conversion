@@ -34,7 +34,7 @@ def convert_symbol(symbol, exchange, type="exchange", year=None):
         symbol = symbol.upper()
         if exchange == "XZCE" and not isoption:
             if year is None:
-                y = '2' if symbol[-3] in ('0', '1', '2', '3', '4') else '1'
+                y = '2' if symbol[-3] in ('0', '1', '2', '3', '4', '5') else '1'
             else:
                 y = str(year)[-2]
             symbol = symbol[:-3] + y + symbol[-3:]
